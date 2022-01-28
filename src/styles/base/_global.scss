@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+html  {
+  font-size: 6.25%;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: var(--fs);
+  background: var(--clr-neutral-100);
+}
+
+.container {
+  padding: 0rem 24rem 34rem 24rem;
+}
+
+.attribution { font-size: 11rem; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }

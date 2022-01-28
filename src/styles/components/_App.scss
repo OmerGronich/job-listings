@@ -1,0 +1,169 @@
+@use '../base/mixins' as *;
+
+
+.App {
+
+  .header {
+    height: 156rem;
+    background: url("src/assets/images/bg-header-mobile.svg"), var(--clr-primary-200);
+    background-size: cover;
+
+    @include respond(desktop) {
+      background: url("src/assets/images/bg-header-desktop.svg"), var(--clr-primary-200);
+    }
+  }
+
+
+  .filter-tab {
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-34rem);
+    padding: 20rem 24rem 20rem 19rem;
+
+    @include respond(desktop) {
+      padding: 20rem 40rem;
+    }
+
+  }
+
+  .filter-tab-tags {
+    display: flex;
+    gap: 16rem;
+    flex-wrap: wrap;
+    margin-right: 40rem;
+  }
+
+  .featured-line {
+    width: 5rem;
+    opacity: 0;
+
+
+    &.visible {
+      opacity: 0;
+    }
+  }
+
+  .job.card {
+    display: grid;
+    grid-template-areas: "logo logo logo"
+                         "details details details"
+                         "tags tags tags";
+    grid-template-rows: 40rem 1fr 0.5fr;
+    padding: 0 24rem 24rem 24rem;
+    margin-top: 12%;
+
+    &.featured {
+      border-left: 5px solid var(--clr-primary-200)
+    }
+
+    @include respond(desktop) {
+      grid-template-areas: "logo details tags";
+      grid-template-rows: 1fr;
+      grid-template-columns: 88rem 1fr 1fr;
+      align-items: center;
+      padding: 32rem 40rem;
+      gap: 24rem;
+      margin-top: 24rem;
+
+    }
+
+    .logo {
+      grid-area: logo;
+
+      .company-logo {
+        width: 48rem;
+        transform: translateY(-50%);
+
+        @include respond(desktop) {
+          width: 88rem;
+          transform: translateY(0);
+        }
+      }
+    }
+
+
+    .details {
+      grid-area: details;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1rem solid #B7C4C4;
+      margin-bottom: 16rem;
+
+      @include respond(desktop) {
+        margin-bottom: 0;
+      }
+
+
+      .company-name-and-chips {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8rem;
+
+
+        .company-name {
+          color: var(--clr-primary-200);
+          margin-right: 16rem;
+          font-weight: 700;
+          font-size: 13rem;
+        }
+
+        .chips {
+          display: flex;
+          font-size: 11rem;
+
+          .new {
+            background: var(--clr-primary-200);
+            color: #fff;
+            margin-right: 8rem;
+          }
+
+          .featured {
+            background: #000;
+            color: #fff;
+          }
+        }
+      }
+
+      .position {
+        font-weight: 700;
+        margin-bottom: 8rem;
+        cursor: default;
+
+        &:hover {
+          color: var(--clr-primary-200);
+          cursor: pointer;
+        }
+      }
+
+
+      .job-info {
+        color: var(--clr-gray-200);
+        margin-bottom: 16rem;
+        font-size: 13rem;
+        @include respond(desktop) {
+          margin-bottom: 0;
+        }
+
+      }
+
+      @include respond(desktop) {
+        border-bottom: none;
+      }
+
+    }
+
+    .tags {
+      grid-area: tags;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16rem;
+      align-items: flex-start;
+
+      @include respond(desktop) {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+}
+

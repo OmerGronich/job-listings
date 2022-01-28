@@ -1,6 +1,30 @@
-import {Component, createMemo, createSignal, For, Show} from 'solid-js';
+import {Component, createMemo, createResource, createSignal, For, Show} from 'solid-js';
 import jobs from './data.json'
 import iconUrl from './assets/images/icon-remove.svg?url';
+import photosnap from './assets/images/photosnap.svg?url';
+import manage from './assets/images/manage.svg?url';
+import account from './assets/images/account.svg?url';
+import myhome from './assets/images/myhome.svg?url';
+import loopStudios from './assets/images/loop-studios.svg?url';
+import faceit from './assets/images/faceit.svg?url';
+import shortly from './assets/images/shortly.svg?url';
+import insure from './assets/images/insure.svg?url';
+import eyecam from './assets/images/eyecam-co.svg?url';
+import airFilter from './assets/images/the-air-filter-company.svg?url';
+
+const jobsLogos = [
+  photosnap,
+  manage,
+  account,
+  myhome,
+  loopStudios,
+  faceit,
+  shortly,
+  insure,
+  eyecam,
+  airFilter,
+];
+
 
 interface Job {
     id: number;
@@ -52,7 +76,7 @@ const JobCard: Component<{ job: Job }> = ({job}) => {
 
     return <div className={`job card ${job.featured ? 'featured' : ''}`}>
         <div class={"logo"}>
-            <img class={'company-logo'} src={job.logo} alt={job.company + ' logo'}/>
+                <img class={'company-logo'} src={jobsLogos[job.id - 1]} alt={job.company + ' logo'}/>
         </div>
         <div className="details">
             <div className="company-name-and-chips">
